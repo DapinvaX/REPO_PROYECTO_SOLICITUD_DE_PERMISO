@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 define("SERVIDOR", "localhost");
 
@@ -10,7 +10,6 @@ define("BBDD", "miBBDD");
 
 
 try {
-
     $con = new PDO("mysql:host=".SERVIDOR.";dbname=".BBDD, USUARIO, CLAVE);
    
     // Establecemos el modo de error de PDO para que salten excepciones
@@ -19,9 +18,9 @@ try {
    
    
    
-   // sql para crear la tabla
+    // sql para crear la tabla
    
-   $sql = "CREATE TABLE Pacientes2 (
+    $sql = "CREATE TABLE Pacientes2 (
    
       id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
    
@@ -38,17 +37,10 @@ try {
     $con->exec($sql);
    
     echo "<p>La tabla Pacientes2 fue creada con éxito";
-   
-   } catch(PDOException $e) {
-   
+} catch (PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
-   
-   }
+}
    
    
    
    $con = null;
-   
-   
-
-?>

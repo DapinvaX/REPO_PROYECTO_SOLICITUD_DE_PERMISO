@@ -20,7 +20,7 @@ $dbConfig = array(
 
    'port' => '3306',
 
-   'user' => 'usuarioDAW',
+   'user' => 'root',
 
    'pass' => 'admin1234',
 
@@ -54,46 +54,37 @@ try {
 
    //Método 1
 
-   //La conexión nos la proporciona conexion.php
+    //La conexión nos la proporciona conexion.php
 
 
 
-   //Método 2
+    //Método 2
 
-   //$conexion = new PDO("mysql:host=".$dbConfig['host'].";dbname=".$dbConfig['db'], $dbConfig['user'], $dbConfig['pass']);
-
-
-
-   //Método 3
-
-   //$conexion = new PDO("mysql:host=".SERVIDOR.";dbname=".BBDD, USUARIO, CLAVE);
+    //$conexion = new PDO("mysql:host=".$dbConfig['host'].";dbname=".$dbConfig['db'], $dbConfig['user'], $dbConfig['pass']);
 
 
 
-   // Establecemos el modo de error de PDO para que salten excepciones
+    //Método 3
 
-   $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //$conexion = new PDO("mysql:host=".SERVIDOR.";dbname=".BBDD, USUARIO, CLAVE);
 
 
 
-   $sql = "INSERT INTO participantes (nombre, numero,email) VALUES ('Luis', 23, 'luismr@ies.es')";
+    // Establecemos el modo de error de PDO para que salten excepciones
 
-   // se usa exec() porque la sentencia no devuelve ningún valor
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-   $conexion->exec($sql);
 
-   echo "<p>Nueva fila creada correctamente";
 
- } catch(PDOException $e) {
+    $sql = "INSERT INTO participantes (nombre, numero,email) VALUES ('Luis', 23, 'luismr@ies.es')";
 
-   echo $sql . "<br>" . $e->getMessage();
+    // se usa exec() porque la sentencia no devuelve ningún valor
 
- }
+    $conexion->exec($sql);
+
+    echo "<p>Nueva fila creada correctamente";
+} catch (PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+}
 
  $conexion = null;
-
-
-
-
-
-?>

@@ -11,25 +11,16 @@ $config = parse_ini_file('conexionDesdeFicheroINI.ini');
 //Método PDO
 
 try {
+    $conexion = new PDO("mysql:host=".$config['host'].";dbname=".$config['dbname'], $config['username'], $config['password']);
 
 
 
-$conexion = new PDO("mysql:host=".$config['host'].";dbname=".$config['dbname'], $config['username'], $config['password']);
+    // Establecemos el modo de error de PDO para que salten excepciones
 
-
-
-   // Establecemos el modo de error de PDO para que salten excepciones
-
-   $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
- } catch(PDOException $e) {
-
-   echo $sql . "<br>" . $e->getMessage();
-
- }
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+}
     /*Cerrar conexion PDO
-        $conexion = null; 
+        $conexion = null;
     */
-?>
