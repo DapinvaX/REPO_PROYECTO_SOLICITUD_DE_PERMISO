@@ -28,33 +28,178 @@
     });
   </script>
 
-    <table class="responsive-table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Correo</th>
-        </tr>
-      </thead>
-      
-      <tbody>
-        <tr>
-          <td>Alvin</td>
-          <td>Eclair</td>
-          <td>dato1@dato1.com</td>
-        </tr>
-        <tr>
-          <td>Alan</td>
-          <td>Jellybean</td>
-          <td>dato2@dato2.com</td>
-        </tr>
-        <tr>
-          <td>Jonathan</td>
-          <td>Moreno</td>
-          <td>dato3@dato3.com</td>
-        </tr>
-      </tbody>
-    </table>
+   
+<?php
+
+require ("permiso.php");
+
+$permisos = new permiso();
+
+
+
+if(isset($_REQUEST["operacion"])){
+
+    if($_REQUEST["operacion"]=="modificar"){
+
+      $permiso->modificar_permiso($_POST["nume"],$_POST["nombre"],$_POST["dni"],$_POST["telefono"],$_POST["bloque"],$_POST["fechaIni"],$_POST["fechaFin"]);
+      mostrarListado($permiso->listar_permisos(),-1);
+
+    }
+
+    else if ($_REQUEST["operacion"]=="borrar") {
+
+    $permiso->borrar_permiso($_REQUEST["nume"]);
+
+    echo "<CENTER>Se ha borrado correctamente el permiso.</CENTER><P>";
+
+    mostrarListado($permiso->listar_permisos(),-1);
+
+  }
+
+ 
+
+} 
+
+else // no hay operacion. Ejemplo: La primera vez que se entra
+
+{
+
+  mostrarListado($permiso->listar_permisos(),-1);
+
+ 
+
+}
+
+
+
+function mostrarListado($permisos_array,$elemento){
+
+
+
+
+
+  $html='<div class="container">
+
+<h2>PERMISOS</h2>          
+
+<table class="table table-striped" id="tabla_permisos">
+
+  <thead>
+
+    <tr>
+
+      <th>ID</th>
+
+      <th>NOMBRE Y APELLIDOS</th>
+
+      <th>DNI</th>
+
+      <th>TELEFONO</th>
+
+      <th>BLOQUE</th>
+
+      <th>FECHA DE INICIO</th>
+
+      <th>FECHA DE FIN</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>';
+
+ 
+
+      $fila="";
+
+      foreach($permisos_array as $permiso){
+
+
+        if($elemento != $permiso['id']){
+
+          $fila='<tr id='.$permiso['id'].'>
+
+          <td>'.$permiso['id'].'</td>
+
+          <td>'.$permiso['nombre'].'</td>
+
+          <td>'.$permiso['dni'].'</td>
+
+          <td>'.$permiso['telefono'].'</td>
+
+          <td>'.$permiso['bloque'].'</td>
+
+          <td>'.$permiso['fechaIni'].'</td>
+
+          <td>'.$permiso['fechaFin'].'</td>
+
+          <td>'.'<a href="javascript:mostrarInfoPermiso('.$permiso['id'].')" class="btn btn-primary"  role="button">Estado</a>'.'</td>
+
+          <td>'.'<a href="listarPermisos.php?idPermiso='.$permiso['id'].'" class="btn btn-info" role="button">Ver</a>'.'</td>
+
+          <td>'.'<a href="index.php?operacion=editar&nume='.$permiso['id'].'" class="btn btn-warning" role="button">Modificar</a>'.'</td>
+
+          <td>'.'<a href="index.php?operacion=borrar&nume='.$permiso['id'].'" class="btn btn-danger" role="button">Eliminar</a>'.'</td>
+
+        </tr>';
+
+        }else{
+
+          $fila='<tr><form method="POST" class="form-inline" action="index.php?operacion=modificar">
+
+          <td>'.$permiso['id'].'</td>
+
+          <td><input type="text" class="form-control" id="nombre" value="'.$permiso['nombre'].'" name="nombre" style="width:150px"></td>
+
+          <td><input type="text" class="form-control" id="dni" value="'.$permiso['dni'].'" name="dni" style="width:150px"></td>
+
+          <td><input type="date" id="telefono" name="telefono" value="'.$permiso['telefono'].'" min="1910-01-01" max="'.date("Y-m-d").'"></td>
+
+          <td><input type="text" class="form-control" id="bloque" value="'.$permiso['bloque'].'" name="bloque" style="width:200px"></td>
+
+          <td><input type="date" id="fecha" name="fechaIni" value="'.$permiso['fechaIni'].'" min="2018-01-01" max="'.date("Y-m-d").'"></td>
+
+          <td><input type="date" id="fecha" name="fechaFin" value="'.$permiso['fechaFin'].'" min="2018-01-01" max="'.date("Y-m-d").'"></td>
+
+          <td>'.'<input type="submit" class="btn btn-success"  value="Guardar" />'.'</td>
+
+          <td>'.'<a href="index.php" class="btn btn-danger" role="button">Cancelar</a>'.'</td>
+
+          <input type="hidden" name="nume" value="'.$elemento.'" />
+
+          
+
+          </form>
+
+        </tr>';
+
+        }
+
+       
+
+         $html=$html.$fila;
+
+       } //fin del bucle for 
+
+       $html=$html.'</tbody>
+
+                    </table>
+
+                    <div id="informacion">
+                    
+                    </div>
+
+                  </div>';
+
+       echo $html;
+
+   }
+
+
+
+
+
+?>
 
 </body>
 
