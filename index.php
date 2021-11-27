@@ -127,7 +127,7 @@ function mostrarListado($permisos_array,$elemento){
 
           <td>'.$permiso['telefono'].'</td>
 
-          <td>'.$permiso['bloque'].'</td>
+          <td>'.$permiso['bloqueS'].'</td>
 
           <td>'.$permiso['fechaIni'].'</td>
 
