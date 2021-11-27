@@ -110,7 +110,7 @@ function listar_Permisos(){
 
     } catch(PDOException $e) {
 
-           echo "Error: S" . $e->getMessage();
+           echo "Error: " . $e->getMessage();
 
     }
 

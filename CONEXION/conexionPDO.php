@@ -34,7 +34,7 @@ function obtenerConexionBD($BD='')
     } catch (PDOException $e) {
         die("<p><H3>No se ha podido establecer la conexión.
 
-                 <p>Compruebe si está activado el servidor de bases dedatos MySQLs.</H3></p>\n <p>Error: ". $e->getMessage()."</p>\n");
+                 <p>Compruebe si está activado el servidor de bases dedatos MySQL.</H3></p>\n <p>Error: ". $e->getMessage()."</p>\n");
 
         exit();
     } // end try
