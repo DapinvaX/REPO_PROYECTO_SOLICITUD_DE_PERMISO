@@ -32,7 +32,7 @@ class permiso{
 
 
 
-function listar_Permisos(){
+function listar_permisos(){
 
   
    try {
