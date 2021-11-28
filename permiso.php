@@ -201,8 +201,7 @@ function modificar_Permiso($id, $nombre, $dni, $telefono, $bloque, $fechaIni, $f
 
 
 function borrar_Permiso($id){
-
-
+   //Hecho por DapinvaX
 
    try {
 
