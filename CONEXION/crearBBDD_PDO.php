@@ -17,7 +17,7 @@ try {
 
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "CREATE DATABASE miBBDD2";
+    $sql = "CREATE DATABASE ";
 
     // Se usa exec() porque no se devuelven resultados
 
