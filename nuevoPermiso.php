@@ -302,7 +302,7 @@
          <footer class="page-footer teal lighten-2">
             <div class="row">
                 <div class="col s12 m6 l6">
-                    <h6 class="white-text " style="align-content: center;">Delegación Provincial de Educación Cáceres</h5>
+                    <h5 class="white-text " style="align-content: center;">Delegación Provincial de Educación Cáceres</h5>
                 </div>
 
             </div>
@@ -311,7 +311,7 @@
     </div>
 
 
-    </div>
+    
 
 </body>
 
