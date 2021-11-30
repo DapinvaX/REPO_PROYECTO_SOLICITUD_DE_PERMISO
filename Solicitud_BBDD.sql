@@ -38,9 +38,9 @@ SET
   CREATE TABLE `grupos` (`nombreGrupo` varchar(20) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 -- --------------------------------------------------------
   --
-  -- Estructura de tabla para la tabla `horiarios`
+  -- Estructura de tabla para la tabla `horarios`
   --
-  CREATE TABLE `horiarios` (`horario` tinyint(4) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+  CREATE TABLE `horarios` (`horario` tinyint(4) NOT NULL) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 -- --------------------------------------------------------
   --
   -- Estructura de tabla para la tabla `permisos`
@@ -90,10 +90,10 @@ ALTER TABLE
 ADD
   PRIMARY KEY (`nombreGrupo`);
 --
-  -- Indices de la tabla `horiarios`
+  -- Indices de la tabla `horaarios`
   --
 ALTER TABLE
-  `horiarios`
+  `horarios`
 ADD
   PRIMARY KEY (`horario`);
 --
