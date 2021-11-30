@@ -82,82 +82,45 @@ function mostrarInfoPaciente(id) {
 
 <?php
 
-   require ("solicitudes.php");
+   require("solicitudes.php");
 
   //$solicitud = new solicitud();
 
 
 
-   if(isset($_REQUEST["operacion"])){
+   if (isset($_REQUEST["operacion"])) {
+       if ($_REQUEST["operacion"]=="alta") {
+           $paciente->alta_paciente($_POST["nombre"], $_POST["apellidos"], $_POST["edad"], $_POST["direccion"], $_POST["telefono"], $_POST["fecha"]);
 
-       if($_REQUEST["operacion"]=="alta")
+           mostrarListado($paciente->listar_pacientes(), -1);
+       } elseif ($_REQUEST["operacion"]=="editar") {
+           mostrarListado($paciente->listar_pacientes(), $_REQUEST["nume"]);
+       } elseif ($_REQUEST["operacion"]=="modificar") {
+           $paciente->modificar_paciente($_POST["nume"], $_POST["nombre"], $_POST["apellidos"], $_POST["edad"], $_POST["direccion"], $_POST["telefono"], $_POST["fecha"]);
+           mostrarListado($paciente->listar_pacientes(), -1);
+       } elseif ($_REQUEST["operacion"]=="borrar") {
+           $paciente->borrar_paciente($_REQUEST["nume"]);
 
-       {
+           echo "<CENTER>Se ha borrado correctamente el paciente.</CENTER><P>";
 
-           $paciente->alta_paciente($_POST["nombre"],$_POST["apellidos"],$_POST["edad"],$_POST["direccion"],$_POST["telefono"],$_POST["fecha"]);
-
-           mostrarListado($paciente->listar_pacientes(),-1);
-
+           mostrarListado($paciente->listar_pacientes(), -1);
        }
-
-      
-
-       else if($_REQUEST["operacion"]=="editar"){
-
-         mostrarListado($paciente->listar_pacientes(),$_REQUEST["nume"]);
-
-       }
-
-       
-
-       else if($_REQUEST["operacion"]=="modificar"){
-
-         $paciente->modificar_paciente($_POST["nume"],$_POST["nombre"],$_POST["apellidos"],$_POST["edad"],$_POST["direccion"],$_POST["telefono"],$_POST["fecha"]);
-         mostrarListado($paciente->listar_pacientes(),-1);
-
-       }
-
-       else if ($_REQUEST["operacion"]=="borrar") {
-
-       $paciente->borrar_paciente($_REQUEST["nume"]);
-
-       echo "<CENTER>Se ha borrado correctamente el paciente.</CENTER><P>";
-
-       mostrarListado($paciente->listar_pacientes(),-1);
-
-     }
-
-    
-
-   } 
-
-   else // no hay operacion. Ejemplo: La primera vez que se entra
-
-   {
-
-     mostrarListado($paciente->listar_pacientes(),-1);
-
-    
-
+   } else { // no hay operacion. Ejemplo: La primera vez que se entra
+       mostrarListado($paciente->listar_pacientes(), -1);
    }
    
-   function calcularEdad($paciente){
-
-    $fecha_nacimiento= new DateTime( $paciente['edad'] );
-    $hoy = new DateTime();
-    $annos = $hoy->diff($fecha_nacimiento);
-    echo $annos->y;
-
+   function calcularEdad($paciente)
+   {
+       $fecha_nacimiento= new DateTime($paciente['edad']);
+       $hoy = new DateTime();
+       $annos = $hoy->diff($fecha_nacimiento);
+       echo $annos->y;
    }
 
 
-   function mostrarListado($pacientes_array,$elemento){
-
-
-
-
-
-     $html='<div class="container">
+   function mostrarListado($pacientes_array, $elemento)
+   {
+       $html='<div class="container">
 
    <h2>Pacientes COVID</h2>          
 
@@ -189,14 +152,11 @@ function mostrarInfoPaciente(id) {
 
     
 
-         $fila="";
+       $fila="";
 
-         foreach($pacientes_array as $paciente){
-
-
-           if($elemento != $paciente['id']){
-
-             $fila='<tr id='.$paciente['id'].'>
+       foreach ($pacientes_array as $paciente) {
+           if ($elemento != $paciente['id']) {
+               $fila='<tr id='.$paciente['id'].'>
 
              <td>'.$paciente['id'].'</td>
 
@@ -221,10 +181,8 @@ function mostrarInfoPaciente(id) {
              <td>'.'<a href="index.php?operacion=borrar&nume='.$paciente['id'].'" class="btn btn-danger" role="button">Eliminar</a>'.'</td>
 
            </tr>';
-
-           }else{
-
-             $fila='<tr><form method="POST" class="form-inline" action="index.php?operacion=modificar">
+           } else {
+               $fila='<tr><form method="POST" class="form-inline" action="index.php?operacion=modificar">
 
              <td>'.$paciente['id'].'</td>
 
@@ -251,16 +209,14 @@ function mostrarInfoPaciente(id) {
              </form>
 
            </tr>';
-
            }
 
           
 
-            $html=$html.$fila;
+           $html=$html.$fila;
+       } //fin del bucle for
 
-          } //fin del bucle for 
-
-          $html=$html.'</tbody>
+       $html=$html.'</tbody>
 
                        </table>
 
@@ -270,9 +226,8 @@ function mostrarInfoPaciente(id) {
 
                      </div>';
 
-          echo $html;
-
-      }
+       echo $html;
+   }
 
 
 
@@ -308,7 +263,7 @@ function mostrarInfoPaciente(id) {
 
      <label for="edad">Edad:</label>
 
-     <input type="date" id="edad" name="edad" value="<?php 
+     <input type="date" id="edad" name="edad" value="<?php
 
       calcularEdad($edad);
      

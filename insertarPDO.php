@@ -4,7 +4,6 @@ include_once '/CONFIGURACION/configuracion.init';
 
 
 try {
-
     $con = new PDO("mysql:host=".SERVIDOR.";dbname=".BBDD, USUARIO, CLAVE);
 
     // Establecemos el modo de error de PDO para que salten excepciones
@@ -16,12 +15,12 @@ try {
 
     $stmt = $con->prepare("INSERT INTO permisos (fechaIni, fechaFin, motivo, diaCompleto, concedido, fecha) VALUES (:fechaIni, :fechaFin, :motivo, :diaCompleto, :concedido, :fecha)");
 
-     $stmt->bindParam(':fechaIni', $fechaIni);
-     $stmt->bindParam(':fechaFin', $fechaFin);
-     $stmt->bindParam(':motivo', $motivo);
-     $stmt->bindParam(':diaCompleto', $diaCompleto);
-     $stmt->bindParam(':concedido', $concedido);
-     $stmt->bindParam(':fecha', $fecha);
+    $stmt->bindParam(':fechaIni', $fechaIni);
+    $stmt->bindParam(':fechaFin', $fechaFin);
+    $stmt->bindParam(':motivo', $motivo);
+    $stmt->bindParam(':diaCompleto', $diaCompleto);
+    $stmt->bindParam(':concedido', $concedido);
+    $stmt->bindParam(':fecha', $fecha);
 
 
 
@@ -35,27 +34,27 @@ try {
     $fecha = "";
    
     
-if (isset($_POST['fechaIni'])) {
-    $fechaIni = $_POST['fechaIni'];
-}
+    if (isset($_POST['fechaIni'])) {
+        $fechaIni = $_POST['fechaIni'];
+    }
 
-if (isset($_POST['fechaFin'])) {
-    $fechaFin = $_POST['fechaFin'];
-}
-if (isset($_POST['motivo'])) {
-    $motivo = $_POST['motivo'];
-}
-if (isset($_POST['diaCompleto'])) {
-    $diaCompleto = $_POST['diaCompleto'];
-}
+    if (isset($_POST['fechaFin'])) {
+        $fechaFin = $_POST['fechaFin'];
+    }
+    if (isset($_POST['motivo'])) {
+        $motivo = $_POST['motivo'];
+    }
+    if (isset($_POST['diaCompleto'])) {
+        $diaCompleto = $_POST['diaCompleto'];
+    }
 
-if (isset($_POST['concedido'])) {
-    $concedido = $_POST['concedido'];
-}
+    if (isset($_POST['concedido'])) {
+        $concedido = $_POST['concedido'];
+    }
 
-if (isset($_POST['vida'])) {
-    $fecha = $_POST['vida'];
-}
+    if (isset($_POST['vida'])) {
+        $fecha = $_POST['vida'];
+    }
 
 
 
@@ -66,11 +65,8 @@ if (isset($_POST['vida'])) {
     echo "Nuevas filas insertadas correctamente ENHORABUENA";
     echo "<h1/>";
     echo "<center/>";
-
-} catch(PDOException $e) {
-
+} catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
-
 }
 
 $con = null;

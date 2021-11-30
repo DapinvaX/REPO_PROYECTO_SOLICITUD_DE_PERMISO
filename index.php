@@ -31,54 +31,32 @@
    
 <?php
 
-require ("permiso.php");
+require("permiso.php");
 
 $permiso = new permiso();
 
 
 
-if(isset($_REQUEST["operacion"])){
+if (isset($_REQUEST["operacion"])) {
+    if ($_REQUEST["operacion"]=="modificar") {
+        $permiso->modificar_permiso($_POST["nume"], $_POST["nombre"], $_POST["dni"], $_POST["telefono"], $_POST["bloque"], $_POST["fechaIni"], $_POST["fechaFin"]);
+        mostrarListado($permiso->listar_permisos(), -1);
+    } elseif ($_REQUEST["operacion"]=="borrar") {
+        $permiso->borrar_permiso($_REQUEST["nume"]);
 
-    if($_REQUEST["operacion"]=="modificar"){
+        echo "<CENTER>Se ha borrado correctamente el permiso.</CENTER><P>";
 
-      $permiso->modificar_permiso($_POST["nume"],$_POST["nombre"],$_POST["dni"],$_POST["telefono"],$_POST["bloque"],$_POST["fechaIni"],$_POST["fechaFin"]);
-      mostrarListado($permiso->listar_permisos(),-1);
-
+        mostrarListado($permiso->listar_permisos(), -1);
     }
-
-    else if ($_REQUEST["operacion"]=="borrar") {
-
-    $permiso->borrar_permiso($_REQUEST["nume"]);
-
-    echo "<CENTER>Se ha borrado correctamente el permiso.</CENTER><P>";
-
-    mostrarListado($permiso->listar_permisos(),-1);
-
-  }
-
- 
-
-} 
-
-else // no hay operacion. Ejemplo: La primera vez que se entra
-
-{
-
-  mostrarListado($permiso->listar_permisos(),-1);
-
- 
-
+} else { // no hay operacion. Ejemplo: La primera vez que se entra
+    mostrarListado($permiso->listar_permisos(), -1);
 }
 
 
 
-function mostrarListado($permisos_array,$elemento){
-
-
-
-
-
-  $html='<div class="container">
+function mostrarListado($permisos_array, $elemento)
+{
+    $html='<div class="container">
 
 <h2>PERMISOS</h2>          
 
@@ -110,14 +88,11 @@ function mostrarListado($permisos_array,$elemento){
 
  
 
-      $fila="";
+    $fila="";
 
-      foreach($permisos_array as $permiso){
-
-
-        if($elemento != $permiso['id']){
-
-          $fila='<tr id='.$permiso['id'].'>
+    foreach ($permisos_array as $permiso) {
+        if ($elemento != $permiso['id']) {
+            $fila='<tr id='.$permiso['id'].'>
 
           <td>'.$permiso['id'].'</td>
 
@@ -142,10 +117,8 @@ function mostrarListado($permisos_array,$elemento){
           <td>'.'<a href="index.php?operacion=borrar&nume='.$permiso['id'].'" class="btn btn-danger" role="button">Eliminar</a>'.'</td>
 
         </tr>';
-
-        }else{
-
-          $fila='<tr><form method="POST" class="form-inline" action="index.php?operacion=modificar">
+        } else {
+            $fila='<tr><form method="POST" class="form-inline" action="index.php?operacion=modificar">
 
           <td>'.$permiso['id'].'</td>
 
@@ -172,16 +145,14 @@ function mostrarListado($permisos_array,$elemento){
           </form>
 
         </tr>';
-
         }
 
        
 
-         $html=$html.$fila;
+        $html=$html.$fila;
+    } //fin del bucle for
 
-       } //fin del bucle for 
-
-       $html=$html.'</tbody>
+    $html=$html.'</tbody>
 
                     </table>
 
@@ -191,9 +162,8 @@ function mostrarListado($permisos_array,$elemento){
 
                   </div>';
 
-       echo $html;
-
-   }
+    echo $html;
+}
 
 
 

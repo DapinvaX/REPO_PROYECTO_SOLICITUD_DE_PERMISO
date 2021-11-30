@@ -1,20 +1,19 @@
-<?php 
+<?php
 
-require ("permiso.php");
+require("permiso.php");
 $permiso = new permiso();
 
 
-   if(isset($_GET["id"])){
-    $id_Permiso = $_GET["id"];
-    
+   if (isset($_GET["id"])) {
+       $id_Permiso = $_GET["id"];
    }
 
    $resultado = $permiso->obtener_permiso_por_id($id_Permiso);
 
    $html = "";
-   foreach($resultado as $datosPermiso){
+   foreach ($resultado as $datosPermiso) {
        // $html .= $datosPaciente['nombre']." - ".$datosPaciente['apellidos']." - ".$datosPaciente['edad']." - ".$datosPaciente['direccion']." - ".$datosPaciente['telefono']." - ".$datosPaciente['fecha'];
-        $html .= 
+       $html .=
         "<table class='table table-striped table-inverse table-responsive'>
             <thead class='thead-inverse'>
                 <tr>
@@ -53,5 +52,4 @@ $permiso = new permiso();
 
    //echo "EXISTE EL PACIENTE CON id:".$idPaciente;
    echo $html;
-
-?>
+   ?>
