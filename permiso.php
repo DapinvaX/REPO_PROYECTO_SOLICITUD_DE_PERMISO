@@ -1,27 +1,19 @@
 <?php
+//Dump de errores en el navegador
+ini_set('display_errors', 1);
 
+ini_set('display_startup_errors', 1);
 
+error_reporting(E_ALL);
 
+?>
+
+<?php
 require("./CONEXION/conexionPDO.php");
-
-
 
 class permiso
 {
     private $conexion;
-
-   
-
-
-    /*function paciente()
-
-    {
-
-       $this->conexion = obtenerConexionBD();
-
-
-
-    }*/
 
     public function __construct()
     {
@@ -29,14 +21,10 @@ class permiso
     }
 
 
-
     public function listar_permisos()
     {
         try {
             $stmt = $this->conexion->prepare("SELECT id, nombre, dni, telefono, bloque, fechaIni, fechaFin FROM permisos");
-
-      
-
             $stmt->execute();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
