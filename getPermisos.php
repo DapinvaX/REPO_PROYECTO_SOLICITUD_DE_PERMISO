@@ -52,4 +52,3 @@ $permiso = new permiso();
 
    //echo "EXISTE EL PACIENTE CON id:".$idPaciente;
    echo $html;
-   ?>
