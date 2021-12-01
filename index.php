@@ -140,8 +140,6 @@ function mostrarListado($permisos_array, $elemento)
 
           <input type="hidden" name="nume" value="'.$elemento.'" />
 
-          
-
           </form>
 
         </tr>';

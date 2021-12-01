@@ -108,9 +108,9 @@
                             <td >1º</td>
                             <td> <select id="grupodiurno1" name="grupo1">
                                     <option value="" disabled selected>Seleccione un grupo</option>
-                                    <option value="1">ASIR</option>
-                                    <option value="2">DAW</option>
-                                    <option value="3">DAM</option>
+                                    <option value="1">1º DAM/DAW</option>
+                                    <option value="2">2º DAM</option>
+                                    <option value="3">2º DAW</option>
                                 </select></td>
                             <td><input id="aula1" name="aula1" type="text" class="validate"></td>
 
