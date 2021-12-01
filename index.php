@@ -41,6 +41,7 @@ error_reporting(E_ALL);
    
 <?php
 
+require("./CONEXION/conexionPDO.php");
 require("permiso.php");
 
 $permiso = new permiso();

@@ -16,6 +16,8 @@ define("USUARIO", "root");
 
 define("CLAVE", "");
 
+define("BBDD", "bbdd");
+
 
 
 /* Recibe el nombre de la base de datos que queremos usar.*/
@@ -24,12 +26,11 @@ define("CLAVE", "");
 
 function obtenerConexionBD($BD='')
 {
-
        /* Intentamos establecer una conexión con el servidor.*/
 
     try {
-        if ($BD=='') {
-            $conexion = new PDO("mysql:host=".SERVIDOR.";charset=utf8", USUARIO, CLAVE);
+        if ($BD=='BBDD') {
+            $conexion = new PDO("mysql:host=".SERVIDOR.";charset=utf8", USUARIO, CLAVE, BBDD);
         } else {
             $conexion  = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . $BD.";charset=utf8", USUARIO, CLAVE);
         }
