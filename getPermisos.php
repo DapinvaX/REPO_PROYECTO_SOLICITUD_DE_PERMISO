@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 
 <?php
 
-require("permiso.php");
+require_once("permiso.php");
 $permiso = new permiso();
 
 

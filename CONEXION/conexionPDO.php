@@ -16,7 +16,7 @@ define("USUARIO", "root");
 
 define("CLAVE", "");
 
-define("BBDD", "bbdd");
+define("BBDD", "Solicitud_BBDD");
 
 
 
@@ -24,22 +24,22 @@ define("BBDD", "bbdd");
 
 /* Si no se indica ningún nombre de la bases de datos se pasa cadena '' como valor por defecto.*/
 
-function obtenerConexionBD($BD='')
+function obtenerConexionBD()
 {
        /* Intentamos establecer una conexión con el servidor.*/
 
     try {
-        if ($BD=='BBDD') {
-            $conexion = new PDO("mysql:host=".SERVIDOR.";charset=utf8", USUARIO, CLAVE, BBDD);
-        } else {
-            $conexion  = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . $BD.";charset=utf8", USUARIO, CLAVE);
-        }
+        
+           
+        $conexion  = new PDO("mysql:host=" . SERVIDOR . ";dbname=" .BBDD.";charset=utf8", USUARIO, CLAVE);
+        
 
         /* Establecemos atributos para configurar la conexión PDO*/
 
         $conexion ->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
         $conexion ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "<p>Conexión realizada";
+        echo '<script">alert("Conexión realizada");</script>';
 
         return($conexion);
     } catch (PDOException $e) {

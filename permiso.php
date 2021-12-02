@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 ?>
 
 <?php
-require("./CONEXION/conexionPDO.php");
+require_once("./CONEXION/conexionPDO.php");
 
 class permiso
 {
@@ -24,7 +24,8 @@ class permiso
     public function listar_permisos()
     {
         try {
-            $stmt = $this->conexion->prepare("SELECT id, nombre, dni, telefono, bloque, fechaIni, fechaFin FROM permisos");
+            $stmt = $this->conexion->prepare("SELECT id,fechaIni, fechaFin FROM permisos");
+            $stmt->setFetchMode(PDO::FETCH_OBJ);
             $stmt->execute();
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
