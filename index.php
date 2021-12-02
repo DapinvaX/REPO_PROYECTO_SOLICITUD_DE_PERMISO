@@ -71,25 +71,23 @@ function mostrarListado($permisos_array, $elemento)
     $html='
 <div class="container">
   
-      <h2>PERMISOS</h2>          
+      <center>
+         <h1>PERMISOS</h1>
+      </center>        
 
-      <table class="table table-striped" id="tabla_permisos">
+      <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>DNI</th>
+                        <th>Fecha</th>
 
-        <thead>
+                    </tr>
+                </thead>
 
-          <tr>
-
-            <th>ID</th>
-
-            <th>NOMBRE Y APELLIDOS</th>
-
-            <th>DNI</th>
-
-          </tr>
-
-        </thead>
-
-        <tbody>';
+                <tbody>
+                   ';
 
       
 
@@ -107,8 +105,6 @@ function mostrarListado($permisos_array, $elemento)
                 <td>'.$permiso['dni'].'</td>
 
                 <td>'.$permiso['fechaIni'].'</td>
-
-                <td>'.'<a href="javascript:mostrarInfoPermiso('.$permiso['id'].')" class="btn btn-primary"  role="button">Estado</a>'.'</td>
 
                 <td>'.'<a href="listarPermisos.php?idPermiso='.$permiso['id'].'" class="btn btn-info" role="button">Ver</a>'.'</td>
 
