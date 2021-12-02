@@ -116,7 +116,7 @@ class permiso
         SET nombre=:nombre, dni=:dni, telefono=:telefono, bloque=:bloque, fechaIni=:fechaIni, fechaFin=:fechaFin 
         WHERE id=:id");
 
-            $stmt->bindParam(':id', $id_Permiso);
+            $stmt->bindParam(':id', $id);
             $stmt->bindParam(':nombre', $nombre_Permiso);
             $stmt->bindParam(':dni', $dni_Permiso);
             $stmt->bindParam(':telefono', $telefono_Permiso);
@@ -125,7 +125,7 @@ class permiso
             $stmt->bindParam(':fechaFin', $fechaFin_Permiso);
 
             // establecemos los parámetros y ejecutamos para insertar
-            $id_Permiso = $id;
+            $id = $id;
             $nombre_Permiso = $nombre;
             $dni_Permiso = $dni;
             $telefono_Permiso = $telefono;
@@ -147,7 +147,7 @@ class permiso
         //Hecho por DapinvaX
 
         try {
-            $id_Permiso="";
+            $id="";
 
             // preparar y vincular parámetros
 
@@ -159,7 +159,7 @@ class permiso
 
             // establecemos los parámetros y ejecutamos para insertar
 
-            $id_Permiso = $id;
+            $id = $id;
 
   
 
