@@ -9,7 +9,7 @@ CREATE TABLE `bbdd`.`profesor` (
 );
 /*Crear tabla PERMISOS*/
 CREATE TABLE `bbdd`.`permisos` (
-  horiarios `idPermiso` INT NOT NULL AUTO_INCREMENT,
+  `idPermiso` INT NOT NULL AUTO_INCREMENT,
   `fechaIni` DATE NOT NULL,
   `fechaFin` DATE NOT NULL,
   `motivo` VARCHAR(450) NOT NULL,
