@@ -122,14 +122,6 @@ function mostrarListado($permisos_array, $elemento)
 
                 <td><input type="text" class="form-control" id="dni" value="'.$permiso['dni'].'" name="dni" style="width:150px"></td>
 
-                <td><input type="date" id="telefono" name="telefono" value="'.$permiso['telefono'].'" min="1910-01-01" max="'.date("Y-m-d").'"></td>
-
-                <td><input type="text" class="form-control" id="bloque" value="'.$permiso['bloque'].'" name="bloque" style="width:200px"></td>
-
-                <td><input type="date" id="fecha" name="fechaIni" value="'.$permiso['fechaIni'].'" min="2018-01-01" max="'.date("Y-m-d").'"></td>
-
-                <td><input type="date" id="fecha" name="fechaFin" value="'.$permiso['fechaFin'].'" min="2018-01-01" max="'.date("Y-m-d").'"></td>
-
                 <td>'.'<input type="submit" class="btn btn-success"  value="Guardar" />'.'</td>
 
                 <td>'.'<a href="index.php" class="btn btn-danger" role="button">Cancelar</a>'.'</td>
