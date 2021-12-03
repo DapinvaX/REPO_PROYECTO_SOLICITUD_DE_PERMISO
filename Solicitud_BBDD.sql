@@ -46,3 +46,38 @@ CREATE TABLE `bbdd`.`horarios` (
 COLUMNA ASIGNATURAS
 ALTER TABLE `bbdd`.`profesor` 
 ADD COLUMN `asignatura` VARCHAR(45) NOT NULL AFTER `firma`;
+
+
+
+
+
+
+
+
+INSERT INTO horarios (horario) VALUES ('auladiurno1');
+INSERT INTO horarios (horario) VALUES ('auladiurno2');
+INSERT INTO horarios (horario) VALUES ('auladiurno3');
+INSERT INTO horarios (horario) VALUES ('auladiurno4');
+INSERT INTO horarios (horario) VALUES ('auladiurno5');
+INSERT INTO horarios (horario) VALUES ('auladiurno6');
+
+INSERT INTO horarios (horario) VALUES ('grupodiurno1');
+INSERT INTO horarios (horario) VALUES ('grupodiurno2');
+INSERT INTO horarios (horario) VALUES ('grupodiurno3');
+INSERT INTO horarios (horario) VALUES ('grupodiurno4');
+INSERT INTO horarios (horario) VALUES ('grupodiurno5');
+INSERT INTO horarios (horario) VALUES ('grupodiurno6');
+
+INSERT INTO horarios (horario) VALUES ('aulanocturno1');
+INSERT INTO horarios (horario) VALUES ('aulanocturno2');
+INSERT INTO horarios (horario) VALUES ('aulanocturno3');
+INSERT INTO horarios (horario) VALUES ('aulanocturno4');
+INSERT INTO horarios (horario) VALUES ('aulanocturno5');
+INSERT INTO horarios (horario) VALUES ('aulanocturno6');
+
+INSERT INTO horarios (horario) VALUES ('gruponocturno1');
+INSERT INTO horarios (horario) VALUES ('gruponocturno2');
+INSERT INTO horarios (horario) VALUES ('gruponocturno3');
+INSERT INTO horarios (horario) VALUES ('gruponocturno4');
+INSERT INTO horarios (horario) VALUES ('gruponocturno5');
+INSERT INTO horarios (horario) VALUES ('gruponocturno6');
