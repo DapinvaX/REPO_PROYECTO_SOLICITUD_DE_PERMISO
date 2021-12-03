@@ -39,3 +39,10 @@ CREATE TABLE `bbdd`.`horarios` (
   `horario` TINYINT NOT NULL,
   PRIMARY KEY (`horario`)
 );
+
+
+
+
+COLUMNA ASIGNATURAS
+ALTER TABLE `bbdd`.`profesor` 
+ADD COLUMN `asignatura` VARCHAR(45) NOT NULL AFTER `firma`;
