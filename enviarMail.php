@@ -71,7 +71,7 @@ $mail->Username = 'proyectodaw@dmc.chat';
 
 //Password para la autentificación SMTP
 
-$mail->Password = 'admin1234';
+$mail->Password = 'ProyectoDaw1234';
 
 //La dirección y nombre del emisor
 
