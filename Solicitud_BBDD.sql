@@ -1,3 +1,6 @@
+CREATE SCHEMA `solicitud` ;
+
+
 /*Crear tabla PROFESOR*/
 CREATE TABLE `solicitud`.`profesor` (
   `id` INT NOT NULL AUTO_INCREMENT,
