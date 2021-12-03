@@ -59,7 +59,7 @@ $mail->Host = 'mail.pissmail.com';
 
 //Indicamos el puerto SMTP  - puede ser 25, 465 o  587
 
-$mail->Port = 587;
+$mail->Port = 465;
 
 //Indicamos si usamos autentificación SMTP
 
