@@ -59,30 +59,30 @@ ADD
 
 
 
-INSERT INTO horarios (horario) VALUES ('auladiurno1');
-INSERT INTO horarios (horario) VALUES ('auladiurno2');
-INSERT INTO horarios (horario) VALUES ('auladiurno3');
-INSERT INTO horarios (horario) VALUES ('auladiurno4');
-INSERT INTO horarios (horario) VALUES ('auladiurno5');
-INSERT INTO horarios (horario) VALUES ('auladiurno6');
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `auladiurno1` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `auladiurno2` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `auladiurno3` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `auladiurno4` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `auladiurno5` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `auladiurno6` VARCHAR(30);
 
-INSERT INTO horarios (horario) VALUES ('grupodiurno1');
-INSERT INTO horarios (horario) VALUES ('grupodiurno2');
-INSERT INTO horarios (horario) VALUES ('grupodiurno3');
-INSERT INTO horarios (horario) VALUES ('grupodiurno4');
-INSERT INTO horarios (horario) VALUES ('grupodiurno5');
-INSERT INTO horarios (horario) VALUES ('grupodiurno6');
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `aulanocturno1` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `aulanocturno2` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `aulanocturno3` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `aulanocturno4` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `aulanocturno5` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `aulanocturno6` VARCHAR(30);
 
-INSERT INTO horarios (horario) VALUES ('aulanocturno1');
-INSERT INTO horarios (horario) VALUES ('aulanocturno2');
-INSERT INTO horarios (horario) VALUES ('aulanocturno3');
-INSERT INTO horarios (horario) VALUES ('aulanocturno4');
-INSERT INTO horarios (horario) VALUES ('aulanocturno5');
-INSERT INTO horarios (horario) VALUES ('aulanocturno6');
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `grupodiurno1` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `grupodiurno2` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `grupodiurno3` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `grupodiurno4` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `grupodiurno5` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `grupodiurno6` VARCHAR(30);
 
-INSERT INTO horarios (horario) VALUES ('gruponocturno1');
-INSERT INTO horarios (horario) VALUES ('gruponocturno2');
-INSERT INTO horarios (horario) VALUES ('gruponocturno3');
-INSERT INTO horarios (horario) VALUES ('gruponocturno4');
-INSERT INTO horarios (horario) VALUES ('gruponocturno5');
-INSERT INTO horarios (horario) VALUES ('gruponocturno6');
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `gruponocturno1` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `gruponocturno2` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `gruponocturno3` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `gruponocturno4` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `gruponocturno5` VARCHAR(30);
+ALTER TABLE `bbdd`.`horarios` ADD COLUMN `gruponocturno6` VARCHAR(30);
