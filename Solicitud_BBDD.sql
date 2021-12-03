@@ -48,7 +48,12 @@ ALTER TABLE `bbdd`.`profesor`
 ADD COLUMN `asignatura` VARCHAR(45) NOT NULL AFTER `firma`;
 
 
-
+ALTER TABLE `bbdd`.`permisos` 
+ADD
+  FOREIGN KEY (`idProfesor`)
+  REFERENCES `bbdd`.`profesor` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
 
 
 
