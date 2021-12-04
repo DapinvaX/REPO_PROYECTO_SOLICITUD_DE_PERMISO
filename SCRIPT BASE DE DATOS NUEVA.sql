@@ -115,7 +115,10 @@ CREATE TABLE `horarios` (
   `gruponocturno3` varchar(30) DEFAULT NULL,
   `gruponocturno4` varchar(30) DEFAULT NULL,
   `gruponocturno5` varchar(30) DEFAULT NULL,
-  `gruponocturno6` varchar(30) DEFAULT NULL
+  `gruponocturno6` varchar(30) DEFAULT NULL,
+  `idPermiso` int DEFAULT NULL,
+  KEY `idPermiso_idx` (`idPermiso`),
+  CONSTRAINT `idPermiso` FOREIGN KEY (`idPermiso`) REFERENCES `permisos` (`idPermiso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -196,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-04 12:40:26
+-- Dump completed on 2021-12-04 14:54:17
