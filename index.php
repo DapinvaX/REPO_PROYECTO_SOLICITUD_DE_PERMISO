@@ -81,7 +81,7 @@ function mostrarListado($permisos_array, $elemento)
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>DNI</th>
-                        <th>Fecha</th>
+                        <th>TELEFONO</th>
 
                     </tr>
                 </thead>
@@ -104,7 +104,7 @@ function mostrarListado($permisos_array, $elemento)
 
                 <td>'.$permiso['dni'].'</td>
 
-                <td>'.$permiso['fechaIni'].'</td>
+                <td>'.$permiso['telefono'].'</td>
 
                 <td>'.'<a href="listarPermisos.php?idPermiso='.$permiso['id'].'" class="btn btn-info" role="button">Ver</a>'.'</td>
 
@@ -121,6 +121,8 @@ function mostrarListado($permisos_array, $elemento)
                 <td><input type="text" class="form-control" id="nombre" value="'.$permiso['nombre'].'" name="nombre" style="width:150px"></td>
 
                 <td><input type="text" class="form-control" id="dni" value="'.$permiso['dni'].'" name="dni" style="width:150px"></td>
+
+                <td><input type="text" class="form-control" id="dni" value="'.$permiso['telefono'].'" name="dni" style="width:150px"></td>
 
                 <td>'.'<input type="submit" class="btn btn-success"  value="Guardar" />'.'</td>
 
