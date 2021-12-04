@@ -46,16 +46,29 @@ CREATE TABLE `solicitud`.`horarios` (
 
 
 
-COLUMNA ASIGNATURAS
+/*COLUMNA ASIGNATURAS*/
 ALTER TABLE `solicitud`.`profesor` 
 ADD COLUMN `asignatura` VARCHAR(45) NOT NULL AFTER `firma`;
 
+
+
+
+
+
+/*idProfesor*/
 ALTER TABLE `solicitud`.`permisos` 
-ADD
+ADD COLUMN `idProfesor` INT NULL AFTER `fecha`,
+ADD INDEX `idProfesor_idx` (`idProfesor` ASC) VISIBLE;
+;
+ALTER TABLE `solicitud`.`permisos` 
+ADD CONSTRAINT `idProfesor`
   FOREIGN KEY (`idProfesor`)
   REFERENCES `solicitud`.`profesor` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
+
+
+
 
 
 ALTER TABLE `solicitud`.`profesor` ADD COLUMN `email` VARCHAR(45) NOT NULL AFTER `firma`;
