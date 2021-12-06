@@ -138,7 +138,7 @@ function mostrarListado($permisos_array, $elemento)
             
 
               $html=$html.$fila;
-          } //fin del bucle for
+          } //fin del bucle
 
           $html=$html.'</tbody>
 
