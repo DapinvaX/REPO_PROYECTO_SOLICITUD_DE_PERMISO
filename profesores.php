@@ -65,7 +65,7 @@
         return $stmt;
      
      
-     
+        
      }
 
      function modificar_profesor($id, $nombre, $dni, $telefono, $firma){
@@ -115,7 +115,7 @@
      
      }
      
-     
+     //Borrar profesor por ID
      function borrar_profesor($id){
      
      

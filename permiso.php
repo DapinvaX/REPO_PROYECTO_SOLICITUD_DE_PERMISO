@@ -188,7 +188,7 @@ class permiso
             $stmt->bindParam(':fecha', $fecha_Permiso);
             
 
-            // establecemos los parámetros y ejecutamos para insertar
+            // Establecemos los parámetros y ejecutamos para insertar
             $id = $id;
             $nombre_Permiso = $nombre_Permiso;
             $fechaIni_Permiso = $fechaIni_Permiso;
