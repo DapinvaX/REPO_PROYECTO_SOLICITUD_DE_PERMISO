@@ -24,7 +24,7 @@ class permiso
     public function listar_permisos()
     {
         try {
-            $stmt = $this->conexion->prepare("SELECT id,fechaIni, fechaFin FROM permisos");
+            $stmt = $this->conexion->prepare("SELECT id, nombre, dni FROM permisos");
             $stmt->setFetchMode(PDO::FETCH_OBJ);
             $stmt->execute();
         } catch (PDOException $e) {
@@ -100,16 +100,13 @@ class permiso
 
 
 
-    public function modificar_Permiso($id, $nombre, $dni, $telefono, $bloque, $fechaIni, $fechaFin)
+    public function modificar_Permiso($id, $nombre, $dni, $telefono)
     {
         try {
             $nombre_Permiso = "";
             $dni_Permiso = "";
             $telefono_Permiso = "";
-            $bloque_Permiso = "";
-            $fechaIni_Permiso = "";
-            $fechaFin_Permiso = "";
-
+           
             // preparar y vincular parámetros
 
             $stmt = $this->conexion->prepare("UPDATE permisos 
@@ -120,18 +117,14 @@ class permiso
             $stmt->bindParam(':nombre', $nombre_Permiso);
             $stmt->bindParam(':dni', $dni_Permiso);
             $stmt->bindParam(':telefono', $telefono_Permiso);
-            $stmt->bindParam(':bloque', $bloque_Permiso);
-            $stmt->bindParam(':fechaIni', $fechaIni_Permiso);
-            $stmt->bindParam(':fechaFin', $fechaFin_Permiso);
+            
 
             // establecemos los parámetros y ejecutamos para insertar
             $id = $id;
             $nombre_Permiso = $nombre;
             $dni_Permiso = $dni;
             $telefono_Permiso = $telefono;
-            $bloque_Permiso = $bloque;
-            $fechaIni_Permiso = $fechaIni;
-            $fechaFin_Permiso = $fechaFin;
+            
 
 
 
@@ -162,6 +155,50 @@ class permiso
             $id = $id;
 
   
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    public function verPermiso(){
+       
+        try {
+            
+            $nombre_Permiso = "";
+            $fechaIni_Permiso = "";
+            $fechaFin_Permiso = "";
+            $motivo_Permiso = "";
+            $diaCompleto_Permiso = "";
+            $concedido_Permiso = ""; 
+            $fecha_Permiso = "";
+            
+            // preparar y vincular parámetros
+
+            $stmt = $this->conexion->prepare(" SELECT * FROM permisos WHERE id=:id ");
+
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':nombre', $nombre_Permiso);
+            $stmt->bindParam(':fechaIni', $fechaIni_Permiso);
+            $stmt->bindParam(':fechaFin', $fechaFin_Permiso);
+            $stmt->bindParam(':motivo', $motivo_Permiso);
+            $stmt->bindParam(':diaCompleto', $diaCompleto_Permiso);
+            $stmt->bindParam(':concedido', $concedido_Permiso);
+            $stmt->bindParam(':fecha', $fecha_Permiso);
+            
+
+            // Establecemos los parámetros y ejecutamos para insertar
+            $id = $id;
+            $nombre_Permiso = $nombre_Permiso;
+            $fechaIni_Permiso = $fechaIni_Permiso;
+            $fechaFin_Permiso =  $fechaFin_Permiso;
+            $motivo_Permiso = $motivo_Permiso;
+            $diaCompleto_Permiso = $diaCompleto_Permiso;
+            $concedido_Permiso = $concedido_Permiso;
+            $fecha_Permiso = $fecha_Permiso;
+
+
 
             $stmt->execute();
         } catch (PDOException $e) {
