@@ -24,11 +24,6 @@ function obtenerConexionBD()
         
            
         $conexion  = new PDO("mysql:host=" . SERVIDOR . ";dbname=" .BBDD.";charset=utf8", USUARIO, CLAVE);
-        
-       
-       
-            $conexion  = new PDO("mysql:host=" . SERVIDOR . ";dbname=" .BBDD.";charset=utf8", USUARIO, CLAVE);
-        
 
 
         /* Establecemos atributos para configurar la conexión PDO*/
