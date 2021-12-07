@@ -193,7 +193,7 @@
       </div>
 
       <div class="col-md-6">
-        <input type="button" class="waves-effect waves-light btn  teal lighten-3" id="myBtn2" value="Crear nuevo PDF">
+       <!-- <input type="button" class="waves-effect waves-light btn  teal lighten-3" id="myBtn2" value="Crear nuevo PDF"> -->
       </div>
     </div>
 </div>
