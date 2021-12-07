@@ -132,7 +132,7 @@
      
            
      
-            // establecemos los parámetros y ejecutamos para insertar
+            // Establecemos los parámetros y ejecutamos para insertar
      
             $id_profesor = $id;
      

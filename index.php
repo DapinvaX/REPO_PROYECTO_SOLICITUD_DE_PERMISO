@@ -51,7 +51,7 @@
 
                   mostrarListado($profesor->listar_profesores(), -1);
               }
-          } else { // no hay operacion. Ejemplo: La primera vez que se entra
+          } else { // no hay operación. Ejemplo: La primera vez que se entra
               mostrarListado($profesor->listar_profesores(), -1);
           }
 
