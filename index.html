@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    </head>
+    <body>
+
+        <center>
+            <h1>Listado y Crear un nuevo Formulario</h1>
+        </center>
+
+        //la lista tiene que ser dinamica
+
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>DNI</th>
+                        <th>Motivos</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>""</td>
+                        <td>""</td>
+                        <td>""</td>
+                        <td>
+                            <a class="waves-effect waves-light btn  teal lighten-3">Ver</a>
+                        </td>
+                        <td>
+                            <a class="waves-effect waves-light btn">Editar</a>
+                        </td>
+                        <td>
+                            <a class="waves-effect waves-light btn red lighten-2">Eliminar</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <br>
+
+        <div class="row">
+
+            <input type="button" value="Crear un nuevo Formulario" id="myBtn">
+
+        </div>
+
+        <div class="row">
+
+            <input type="button" value="Crear  nuevo PDF" id="myBtn2">
+
+        </div>
+        <script>
+
+            var btn = document.getElementById('myBtn');
+            btn.addEventListener('click', function () {
+                document.location.href = 'formularioPermiso.php';
+            });
+
+            var btn = document.getElementById('myBtn2');
+            btn.addEventListener('click', function () {
+                document.location.href = 'crearpdf.php';
+            });
+        </script>
+    </body>
+</html>
