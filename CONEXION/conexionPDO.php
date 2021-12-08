@@ -6,7 +6,7 @@ define("USUARIO", "root");
 
 define("CLAVE", "");
 
-define("BBDD", "bbdd");
+define("BBDD", "permisos");
 
 
 
