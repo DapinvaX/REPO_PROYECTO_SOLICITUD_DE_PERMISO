@@ -1,0 +1,69 @@
+body {
+    background-color: rgb(190, 204, 229);
+}
+
+
+
+aside{
+    grid-area: aside;
+    grid-column: 1;
+    grid-row: 5;
+   
+}
+
+.header {
+    grid-area: header;
+}
+
+table {
+    border:1px solid black;
+    width:40%;
+}
+
+th {
+    border: 1px solid black;
+}
+
+.contenedor h3 { 
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.contenedor img{
+    float: right;
+    width: 20%;
+    height: 20%;
+    background-color: lightblue;
+}
+
+section {
+    grid-area: section;
+    display: grid;
+}  
+
+.checkbox {
+    margin-right: 30px;
+}
+
+input{
+	border-radius:5px;
+	border: 1px solid black;
+}
+
+.contenedorTabla{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20%;
+    grid-template-rows: 1fr;
+}
+
+.tabla1{
+    grid-column: 1/2;
+    grid-row: 1;
+}
+
+.tabla2{
+    grid-column: 2/3;
+
+}
+
