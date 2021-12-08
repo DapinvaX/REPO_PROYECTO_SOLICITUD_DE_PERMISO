@@ -1,26 +1,46 @@
 <?php
-//Dump de errores en el navegador
-ini_set('display_errors', 1);
+ //NO TOCAR
+define("SERVIDOR", "localhost");
 
-ini_set('display_startup_errors', 1);
+define("USUARIO", "root");
 
-error_reporting(E_ALL);
+define("CLAVE", "");
 
-?>
+define("BBDD", "bbdd");
 
-<?php
 
-$servername = "localhost:3306";
-$username = "root";
-$password = "admin1234";
-$dbname = "bbdd";
 
-try {
-  $conn = new PDO("mysql:host=$servername;dbname=bbdd", $username, $password);
-  // set the PDO error mode to exception
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Conexión satisfactoria";
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+
+/* Recibe el nombre de la base de datos que queremos usar.*/
+
+/* Si no se indica ningún nombre de la bases de datos se pasa cadena '' como valor por defecto.*/
+
+function obtenerConexionBD()
+{
+
+       /* Intentamos establecer una conexión con el servidor.*/
+
+    try {
+        
+           
+        $conexion  = new PDO("mysql:host=" . SERVIDOR . ";dbname=" .BBDD.";charset=utf8", USUARIO, CLAVE);
+       
+
+        /* Establecemos atributos para configurar la conexión PDO*/
+
+        $conexion ->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+        $conexion ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //echo "<p>Conexión realizada";
+        echo '<script>alert("Conexión realizada");</script>';
+
+        return($conexion);
+    } catch (PDOException $e) {
+        die("<p><H3>No se ha podido establecer la conexión.
+                 <p>Compruebe si está activado el servidor de bases dedatos MySQL.</H3></p>\n <p>Error: ". $e->getMessage()."</p>\n");
+
+        exit();
+    } // end try
 }
-?> 
+   /*Para cerrar la conexion (PDO)
+    $conexion = null;
+*/
