@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 -- Base de datos: `permisos`
 --
 -- --------------------------------------------------------
-
+CREATE SCHEMA IF NOT EXISTS `permisos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `permisos` ;
 --
 -- Estructura de tabla para la tabla `departamentos`
 --
