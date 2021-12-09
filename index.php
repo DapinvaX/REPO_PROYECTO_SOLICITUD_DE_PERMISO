@@ -39,7 +39,17 @@ $profesor = new profesor();
 
 
 if (isset($_REQUEST["operacion"])) {
-    if ($_REQUEST["operacion"]=="modificar") {
+  if($_REQUEST["operacion"]=="alta")
+
+  {
+
+      $paciente->alta_profesor($_POST["dni"],$_POST["nombre"],$_POST["telefono"],$_POST["firma"]);
+
+      mostrarListado($profesor->listar_profesores(),-1);
+
+  }
+
+  else if ($_REQUEST["operacion"]=="modificar") {
         $profesor->modificar_profesor($_POST["nume"], $_POST["nombre"], $_POST["dni"], $_POST["telefono"], $_POST["firma"]);
         mostrarListado($profesor->listar_profesores(), -1);
     } elseif ($_REQUEST["operacion"]=="borrar") {
@@ -189,6 +199,13 @@ if (isset($_POST['guardar'])) {
 
     <div class="col-md-6">
       <input type="button" class="waves-effect waves-light btn  teal lighten-3" id="myBtn2" value="Crear nuevo PDF">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="info" name="info">
+
+      </div>
     </div>
   </div>
 </div>

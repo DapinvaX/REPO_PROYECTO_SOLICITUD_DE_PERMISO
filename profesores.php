@@ -68,6 +68,56 @@
         
      }
 
+     function alta_profesor($dni, $nombre, $telefono, $firma){
+
+
+
+        try {
+ 
+          $dni_profesor = "";
+          $nombre_profesor = "";
+          $telefono_profesor = "";
+          $firma_profesor = "";
+ 
+            // preparar y vincular parámetros
+ 
+            $stmt = $this->conexion->prepare("INSERT INTO pacientes (dni, nombre, telefono, firma ) 
+                                              VALUES (:dni, :nombre, :telefono, :firma)");
+ 
+             $stmt->bindParam(':dni', $dni_profesor);
+
+             $stmt->bindParam(':nombre', $nombre_profesor);
+ 
+             $stmt->bindParam(':telefono', $telefono_profesor);
+ 
+             $stmt->bindParam(':firma', $firma_profesor);
+ 
+        
+ 
+            // establecemos los parámetros y ejecutamos para insertar
+            
+            $dni_profesor = $dni;
+            $nombre_profesor = $nombre;
+            $telefono_profesor = $telefono;
+            $firma_profesor = $firma;
+ 
+ 
+ 
+            $stmt->execute();
+ 
+    
+ 
+     } catch(PDOException $e) {
+ 
+            echo "Error: " . $e->getMessage();
+ 
+     }
+ 
+ 
+ 
+    }
+
+
      function modificar_profesor($id, $nombre, $dni, $telefono, $firma){
 
    
